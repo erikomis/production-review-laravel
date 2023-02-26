@@ -10,9 +10,9 @@ use Illuminate\View\View;
 
 class UserAccountController extends Controller
 {
-    public function  signIn () :View
+    public function  signUp() :View
     {
-        return  view('auth.sign-in');
+        return  view('auth.sign-up');
     }
 
     public function  store (UserAccountStoreRequest $request)
