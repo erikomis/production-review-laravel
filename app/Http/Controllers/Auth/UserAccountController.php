@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\UserAccountStoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -34,8 +35,8 @@ class UserAccountController extends Controller
             'password' =>  Hash::make( $request->password )
         ]);
 
-
-        return  redirect()->route('sign-in');
+        event(new Registered($user));
+        return  redirect()->route('/');
 
 
     }
