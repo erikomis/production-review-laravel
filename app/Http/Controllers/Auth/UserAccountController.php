@@ -18,7 +18,7 @@ class UserAccountController extends Controller
     public function  store (UserAccountStoreRequest $request)
     {
 
-        $request->valided();
+        $request->validated();
 
         $emailExists = User::where('email', $request->email)-> first();
         if($emailExists) {
