@@ -24,7 +24,7 @@ class UserAccountStoreRequest extends FormRequest
         return [
             'name' => 'required',
             'email'=> 'required|email|unique:users,email',
-            'password' => 'required|min:8|confirm'
+            'password' => 'required|min:8|confirmed'
         ];
     }
 
@@ -33,6 +33,7 @@ class UserAccountStoreRequest extends FormRequest
         return  [
             'name.required' =>  'O nome e obrigatorio',
             'email.required' =>  'O email e obrigatorio',
+            'email.email' => 'Email inválido',
             'email.unique' =>  'O email ja esta em uso',
             'password.required' =>  'A senha e obrigatoria',
             'password.min' =>  'A senha deve ter no minimo 8 digitos',
